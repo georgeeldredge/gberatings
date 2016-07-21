@@ -12,6 +12,13 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+#SETTINGS_DIR = os.path.dirname(__file__)
+#PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
+#PROJECT_ROOT = os.path.abspath(PROJECT_PATH)
+#TEMPLATE_DIRS = (
+#    os.path.join(PROJECT_ROOT, 'templates'),
+#)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,7 +34,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markdown_deux',
+    'history',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,7 +63,7 @@ ROOT_URLCONF = 'gberatings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
