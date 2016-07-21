@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
     <meta charset="utf-8">
-    <title>Change me</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Histories | GBE College Football Ratings</title>
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <meta name="description" content="">
     <meta name="author" content="">
     
     <!-- Le styles -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<!--    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">-->
     
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -18,12 +18,21 @@
     </head>
     
     <body>
-    
-    <div class="container">
-      {% load markdown_deux_tags %}   
-      {% markdown %}
-      {% markdown_cheatsheet %}
-      {% endmarkdown %}
-    </div> <!-- /container -->
+	<h2>Team History Report</h2>
+
+	<h3>Select a team to get historical data</h3>
+
+	{% if teams %}
+            <select name="team">
+                {% for team in teams %}
+                <option value="{{ team.id }}">{{ team.teamname }}</option>
+                {% endfor %}
+            </select>
+        {% else %}
+            <strong>Something is wrong.....</strong>
+        {% endif %}
+
+	<hr>
+
     </body>
 </html>
