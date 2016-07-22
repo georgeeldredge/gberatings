@@ -1,55 +1,72 @@
-<!DOCTYPE html>
-<html>
-    <head>
-	    <title>Team Histories | GBE College Football Ratings</title>
-    </head>
-    
-    <body>
-    
-	    {% csrf_token %}
-    
-        {% if message %}
-			<h1>{{ message }}</h1>
-		{% else %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-		<h2>Team History Report</h2>
-	    
-		{% if teaminfo %}	
-			<h3>Showing History Report for Team: {{ teaminfo.teamname }} {{ teaminfo.teammascot }}</h3>
-			{% if teamdata %}
-				<table>
-                	<thead>
-                    	<tr>
-                    		<th>Season</th>
-	                        <th>Final Rank</th>
-	                        <th>Final Rating</th>
-    	                    <th>Final SOS Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-						{% for data in teamdata %}
-                        	<tr>
-								<td>{{ data.season }}</td>
-                                <td>{{ data.weekfinalrank }}</td>
-<!---->                                <td>{{ data.weekfinalrating }}</td><!---->
-<!--                                <td>{{ data.weekfinalratingadjusted }}</td><!---->
-                                <td>{{ data.weekfinalsos }}</td>
-                            </tr>
-						{% endfor %}
-                    </tbody>
-                </table>
-			{% endif %}
-	    {% else %}
-			<strong>Something is still wrong.....</strong>
-	    {% endif %}
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-	{% endif %}
-    
-    <div style="font-size: .8em; font-style: italic; margin-top: 2em;">Note: A team's report for 2003 may appear strangely.  A team may have a "Final Rank" of "None" (and Final Rating of 0.000) for 2003 - this is due to 2003 only being calculated for the top 25 teams.  If a team displays None/0.00, they were ranked in the top 25 of SOS but not in total rating).  If they do not have a 2003 entry, they were not ranked in the top 25 in either scale</div>
-    
-    <hr>
-    
-    <a href="/">Return Home</a>
+<head>
 
-    </body>
+<meta name="google-site-verification" content="lSGP4VGCjCsSuYeRRi_8Gx_Dgw6NI0VpIwHKOlyLZYA" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />-->
+
+<link rel="shortcut icon" href="/image/site/favicon.ico" type="image/jpg" />
+
+<link href="/tools/style.css" rel="stylesheet" type="text/css" title="main" />
+
+<script type="text/javascript" src="/tools/jscript/jquery.js"></script>
+
+<title>Team Histories | GBE College Football Ratings</title>
+
+</head>
+
+<body>
+
+    {% csrf_token %}
+
+    {% if message %}
+        <h1>{{ message }}</h1>
+    {% else %}
+
+    <h2>Team History Report</h2>
+    
+    {% if teaminfo %}	
+        <h3>Showing History Report for Team: {{ teaminfo.teamname }} {{ teaminfo.teammascot }}</h3>
+        {% if teamdata %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Season</th>
+                        <th>Final Rank</th>
+                        <th>Final Rating</th>
+                        <th>Final SOS Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in teamdata %}
+                        <tr>
+                            <td>{{ data.season }}</td>
+                            <td>{{ data.weekfinalrank }}</td>
+<!---->                            <td>{{ data.weekfinalrating }}</td><!---->
+<!--                            <td>{{ data.weekfinalratingadjusted }}</td><!---->
+                            <td>{{ data.weekfinalsos }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% else %}
+    <strong>Something is still wrong.....</strong>
+{% endif %}
+
+{% endif %}
+
+<div style="font-size: .8em; font-style: italic; margin-top: 2em;">Note: A team's report for 2003 may appear strangely.  A team may have a "Final Rank" of "None" (and Final Rating of 0.000) for 2003 - this is due to 2003 only being calculated for the top 25 teams.  If a team displays None/0.00, they were ranked in the top 25 of SOS but not in total rating).  If they do not have a 2003 entry, they were not ranked in the top 25 in either scale</div>
+
+<hr>
+
+<a href="/">Return Home</a>
+
+</body>
+
 </html>
