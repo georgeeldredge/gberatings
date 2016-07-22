@@ -9,5 +9,5 @@ setup(
     license='LICENSE.txt',
     description='GBERatings Team History',
     long_description=open('README.txt').read(),
-    url='https://github.com/georgeeldredge/gberatings',
+    url='https://github.com/georgeeldredge/gberatings'
 )
