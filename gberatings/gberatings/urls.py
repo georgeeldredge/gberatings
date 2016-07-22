@@ -18,6 +18,9 @@ from django.contrib import admin
 from history import views as history_views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', history_views.index)
+#    url(r'^admin/', admin.site.urls),
+    url(r'^$', history_views.index),
+#    url(r'^team/(?P<team_name>[a-z,A-Z,\s]+)/$', history_views.history_report),
+#    url(r'^team/(?P<team_name>.*)$', history_views.history_report),
+    url(r'^(?P<team_name>.*)$', history_views.history_report),
 ]
