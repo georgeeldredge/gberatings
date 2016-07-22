@@ -13,12 +13,11 @@ def index(request):
 	# Obtain the context from the HTTP request.
 	context = RequestContext(request)
 
-	# Query the database for a list of teams in the ratings db.
-	# Place the list in our context_dict dictionary which will be passed to the template engine.
+	# QUERY THE DB FOR A LIST OF TEAMS PRESENT
 	team_list = Teamindex.objects.order_by('teamname')
 	context_dict = {'teams': team_list}
 
-	# Render the response and send it back!
+	# RENDER THE RESPONSE AND FIRE IT BACK
 	return render_to_response('index.html', context_dict, context)
 
 def history_report(request, team_name):
@@ -43,5 +42,5 @@ def history_report(request, team_name):
 
 	context_dict = {'teamname': team_name, 'teaminfo': team_info, 'message': message, 'teamdata': team_data}
 
-	# Render the response and send it back!
+	# RENDER THE RESPONSE AND FIRE IT BACK
 	return render_to_response('history.html', context_dict, context)
