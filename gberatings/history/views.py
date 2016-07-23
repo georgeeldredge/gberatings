@@ -38,6 +38,11 @@ def history_report(request, team_name):
 			
 		# GO GET ALL COMPLETED SEASON DATA FROM THE DB FOR THIS TEAM
 		team_data = Seasondata.objects.filter(teamid=team_id)
+		
+		for team in team_data:
+			team.weekfinalrating = team.weekfinalrating * 10000
+			team.weekfinalrating = round(team.weekfinalrating, 1)
+			team.weekfinalsos = round(team.weekfinalsos, 5)
 
 	context_dict = {'teamname': team_name, 'teaminfo': team_info, 'message': message, 'teamdata': team_data}
 

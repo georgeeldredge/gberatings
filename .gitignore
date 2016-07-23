@@ -4,3 +4,4 @@ env
 __pycache__
 .gitignore
 gberatings/tools
+robots.txt
